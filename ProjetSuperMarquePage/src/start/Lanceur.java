@@ -31,6 +31,6 @@ public class Lanceur {
 
 	p.exec();
 
-//	Coucou les bitos, c'est l'adjudant Tifrice !
+
 }
 }
