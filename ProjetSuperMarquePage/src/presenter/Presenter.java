@@ -54,7 +54,7 @@ public class Presenter {
 			//choixModifier();
 			break;
 		case 4:
-			//choixSupprimer();
+			choixSupprimer();
 			break;
 
 		default:
@@ -127,6 +127,41 @@ public class Presenter {
 			this.metier.creerJeu(this.vue.saisirJeu());
 		}  catch (Exception e) {
 			this.vue.afficherMessage(e.getMessage());
+		}
+		
+	}
+	private void choixSupprimer() {
+		int choix;
+		choix = vue.afficherMenu(C.MENU_SUPPRIMER, C.TITRE_MENU_SUPPRIMER);
+		switch (choix) {
+		case 1:
+			supprimerAnime();
+			break;
+		case 2:
+			supprimerJeu();
+			break;
+		default:
+			break;
+		}
+		
+	}
+
+	private void supprimerJeu() {
+		try {
+			metier.supprimerJeu(vue.recupererChoixJeuSupprimer(metier.recupererListeJeux()));
+			vue.afficherMessage(C.MESSAGE_SUPPRESSION_EFFECTUE);
+		} catch (Exception e) {
+			vue.afficherMessage(e.getMessage());
+		}
+		
+	}
+
+	private void supprimerAnime() {
+		try {
+			metier.supprimerAnime(vue.recupererChoixAnimeSupprimer(metier.recupererListeAnimes()));
+			vue.afficherMessage(C.MESSAGE_SUPPRESSION_EFFECTUE);
+		} catch (Exception e) {
+			vue.afficherMessage(e.getMessage());
 		}
 		
 	}

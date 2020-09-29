@@ -31,6 +31,5 @@ public class Lanceur {
 
 	p.exec();
 
-	// Bienvenue chez Giboz et Bodot
 }
 }

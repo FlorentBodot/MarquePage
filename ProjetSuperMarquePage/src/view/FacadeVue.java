@@ -18,13 +18,14 @@ public interface FacadeVue {
 	
 	public Anime modifierAnime(List<Anime> Animes);
 	
-	public Anime supprimerAnime(List<Anime> Animes);
-	
 	public void afficherListingAnime(List<Anime> Animes);
 
 	public void afficherListingJeu(List<Jeu> jeux);
 
 	public Jeu saisirJeu() throws VueException;
 
+	public Jeu recupererChoixJeuSupprimer(List<Jeu> jeux);
+
+	public Anime recupererChoixAnimeSupprimer(List<Anime> animes);
 	
 }

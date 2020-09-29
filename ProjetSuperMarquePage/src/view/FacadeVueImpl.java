@@ -53,12 +53,6 @@ public class FacadeVueImpl implements FacadeVue{
 	}
 
 	@Override
-	public Anime supprimerAnime(List<Anime> Animes) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void afficherListingAnime(List<Anime> Animes) {
 		for (Anime a : Animes) {
 			AffichageConsole.afficherMessageSansSautLigne(a.getNomAnime()+"\t\t"+a.getNumeroEp()+"\t\t"+a.getLangue()+"\n");
@@ -87,6 +81,22 @@ public class FacadeVueImpl implements FacadeVue{
 			throw new VueException(C.FACADE_VUE_ERREUR_FABRIQUER_JEU);
 		}
 	}
+	@Override
+	public Jeu recupererChoixJeuSupprimer(List<Jeu> jeux) {
+		int choix;
+		afficherListingJeu(jeux);
+		afficherMessage(C.DEMANDER_CHOIX_JEU);
+		choix = LectureConsole.lectureChoixInt(1, jeux.size());
+		return jeux.get(choix-1);
+	}
 
-	
+	@Override
+	public Anime recupererChoixAnimeSupprimer(List<Anime> animes) {
+		int choix;
+		afficherListingAnime(animes);
+		afficherMessage(C.DEMANDER_CHOIX_ANIME);
+		choix = LectureConsole.lectureChoixInt(1, animes.size());
+		return animes.get(choix-1);
+
+	}	
 }
