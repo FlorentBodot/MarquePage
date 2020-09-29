@@ -31,6 +31,6 @@ public class Lanceur {
 
 	p.exec();
 
-	// Bienvenue chez Giboz
+	// Bienvenue chez Giboz et Bodot
 }
 }
