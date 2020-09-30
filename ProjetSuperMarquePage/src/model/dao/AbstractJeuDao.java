@@ -13,6 +13,7 @@ public abstract class AbstractJeuDao implements Dao<Jeu, String>{
 
 		try {
 			create(EntitiesFactory.fabriquerJeu("DOOM", 0, "Non commencé"));
+			create(EntitiesFactory.fabriquerJeu("Tomb Raider", 25, "Prologue fini"));
 		} catch (DaoException | ConstructionException e) {
 			e.printStackTrace();
 		}

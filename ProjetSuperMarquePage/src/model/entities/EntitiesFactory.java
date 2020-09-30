@@ -3,6 +3,7 @@ package model.entities;
 import model.entities.exceptions.AnimeException;
 import model.entities.exceptions.ConstructionException;
 import model.entities.exceptions.JeuException;
+import model.entities.references.TypeLangue;
 
 public final class EntitiesFactory {
 
@@ -24,7 +25,7 @@ public final class EntitiesFactory {
 		
 	}
 
-	public static Anime fabriquerAnime(final String nomAnime,final int numeroEp,final String langue) throws ConstructionException {
+	public static Anime fabriquerAnime(final String nomAnime,final int numeroEp,final TypeLangue langue) throws ConstructionException {
 		
 				
 		try {
@@ -34,7 +35,7 @@ public final class EntitiesFactory {
 			a.setLangue(langue);
 			return a;
 		} catch (AnimeException e) {
-			throw new ConstructionException(e.getCause());
+			throw new ConstructionException(e.getMessage());
 		}
 		
 		

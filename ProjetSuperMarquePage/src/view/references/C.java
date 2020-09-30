@@ -24,5 +24,8 @@ public class C {
 	public static final String DEMANDER_NUMERO_EP_ANIME = "A quel épisode vous êtes vous arrêter?";
 	public static final String DEMANDER_CHOIX_JEU = "Choisissez le jeu a supprimer :";
 	public static final String DEMANDER_CHOIX_ANIME = "Choisissez l'animé a supprimer :";
+	public static final int MAX_NB_EPISODE = 1000;
+	public static final String ANIME_AJOUTER = "Anime ajouter correctement";
+	public static final String JEU_AJOUTER = "Jeu ajouter correctement";
 
 }

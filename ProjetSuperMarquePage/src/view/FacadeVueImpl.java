@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import common.view.util.LectureConsole;
 import model.entities.Anime;
 import model.entities.EntitiesFactory;
 import model.entities.Jeu;
+import model.entities.references.TypeLangue;
 import view.exceptions.VueException;
 import view.references.C;
 
@@ -34,8 +36,8 @@ public class FacadeVueImpl implements FacadeVue{
 	public Anime saisirAnime() throws VueException {
 		String nomAnime = LectureConsole.lectureChaineCaracteres(C.DEMANDER_NOM_ANIME);
 		AffichageConsole.afficherMessageSansSautLigne(C.DEMANDER_NUMEPISODE);
-		int numeroEp = LectureConsole.lectureChoixInt(0, 1000);
-		String langue = LectureConsole.lectureChaineCaracteres(C.DEMANDER_LANGUE_ANIME);
+		int numeroEp = LectureConsole.lectureChoixInt(1, C.MAX_NB_EPISODE);
+		TypeLangue langue = demanderLangue();
 		
 		try {
 			return EntitiesFactory.fabriquerAnime(nomAnime, numeroEp, langue);
@@ -44,6 +46,20 @@ public class FacadeVueImpl implements FacadeVue{
 		}
 		
 
+	}
+
+	private TypeLangue demanderLangue() {
+		int choix = 0;
+		
+		List<String> lesLangues = new ArrayList<>();
+		for (TypeLangue l : TypeLangue.values()) {
+			lesLangues.add(l.toString());
+		}
+		AffichageConsole.afficherMessageAvecSautLigne(C.DEMANDER_LANGUE_ANIME);
+		AffichageConsole.afficherMenuSimple(lesLangues);
+		choix = LectureConsole.lectureChoixInt(0, TypeLangue.values().length);
+		
+		return TypeLangue.values()[choix -1];
 	}
 
 	@Override
@@ -81,6 +97,7 @@ public class FacadeVueImpl implements FacadeVue{
 			throw new VueException(C.FACADE_VUE_ERREUR_FABRIQUER_JEU);
 		}
 	}
+	
 	@Override
 	public Jeu recupererChoixJeuSupprimer(List<Jeu> jeux) {
 		int choix;

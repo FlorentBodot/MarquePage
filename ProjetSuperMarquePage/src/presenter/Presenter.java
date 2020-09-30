@@ -116,6 +116,7 @@ public class Presenter {
 	private void ajoutAnime() {
 		try {
 			this.metier.creerAnime(this.vue.saisirAnime());
+			vue.afficherMessage(C.ANIME_AJOUTER);
 		} catch (Exception e) {
 			this.vue.afficherMessage(e.getMessage());
 		}
@@ -125,6 +126,7 @@ public class Presenter {
 		
 		try {
 			this.metier.creerJeu(this.vue.saisirJeu());
+			vue.afficherMessage(C.JEU_AJOUTER);
 		}  catch (Exception e) {
 			this.vue.afficherMessage(e.getMessage());
 		}
