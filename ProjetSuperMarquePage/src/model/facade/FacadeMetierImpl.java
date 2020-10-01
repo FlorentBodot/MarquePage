@@ -37,7 +37,7 @@ public final class FacadeMetierImpl extends AbstractFacadeMetierImpl {
 	public void modifierAnime(Anime a)throws Exception{
 
 		try {
-			daoAnime.create(a);
+			daoAnime.update(a);
 		} catch (DaoException e) {
 			throw new Exception(e);
 		}

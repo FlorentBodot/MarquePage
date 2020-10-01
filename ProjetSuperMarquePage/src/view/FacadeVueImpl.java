@@ -9,6 +9,7 @@ import common.view.util.LectureConsole;
 import model.entities.Anime;
 import model.entities.EntitiesFactory;
 import model.entities.Jeu;
+import model.entities.exceptions.AnimeException;
 import model.entities.references.TypeLangue;
 import view.exceptions.VueException;
 import view.references.C;
@@ -62,12 +63,8 @@ public class FacadeVueImpl implements FacadeVue{
 		return TypeLangue.values()[choix -1];
 	}
 
-	@Override
-	public Anime modifierAnime(List<Anime> Animes) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+	
 	@Override
 	public void afficherListingAnime(List<Anime> Animes) {
 		for (Anime a : Animes) {
@@ -115,5 +112,40 @@ public class FacadeVueImpl implements FacadeVue{
 		choix = LectureConsole.lectureChoixInt(1, animes.size());
 		return animes.get(choix-1);
 
-	}	
+	}
+
+	@Override
+	public Anime recupererChoixAnimeModifier(List<Anime> recupererListeAnimes) {
+		int choix;
+		afficherListingAnime(recupererListeAnimes);
+		afficherMessage(C.DEMANDER_CHOIX_ANIME_MODIFICATION);
+		choix = LectureConsole.lectureChoixInt(1, recupererListeAnimes.size());
+		return recupererListeAnimes.get(choix-1);
+	}
+
+	@Override
+	public void modifierAnime(Anime anime) throws VueException {
+		String nomAnime = LectureConsole.lectureChaineCaracteres(C.DEMANDER_NOM_ANIME);
+		AffichageConsole.afficherMessageAvecSautLigne(C.DEMANDER_NUMEPISODE);
+		int numEpisode = LectureConsole.lectureEntier();
+		TypeLangue langue = demanderLangue();
+		
+		try {
+			anime.setNomAnime(nomAnime);
+			anime.setNumeroEp(numEpisode);
+			anime.setLangue(langue);
+		} catch( AnimeException e) {
+			throw new VueException(C.FACADE_VUE_ERREUR_MODIFICATION);
+		}
+
+	}
+
+
+	@Override
+	public void modifierJeu(Jeu jeu) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }

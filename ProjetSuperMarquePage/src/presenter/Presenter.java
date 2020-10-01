@@ -31,12 +31,12 @@ public class Presenter {
 	}
 
 	public void exec() {
-		
+
 		int choix = 0;
 		do {
 			choix = vue.afficherMenuPrincipal();
 			traiterChoix(choix);
-			
+
 		} while (choix !=0);
 
 
@@ -51,7 +51,7 @@ public class Presenter {
 			choixAjouter();
 			break;
 		case 3:
-			//choixModifier();
+			choixModifier();
 			break;
 		case 4:
 			choixSupprimer();
@@ -61,6 +61,8 @@ public class Presenter {
 			break;
 		}
 	}
+
+
 
 
 
@@ -78,7 +80,7 @@ public class Presenter {
 			break;
 		}
 	}
-	
+
 	private void choixAjouter() {
 		int choix;
 		choix = vue.afficherMenu(C.MENU_AJOUT_LISTING, C.TITRE_MENU_AJOUT);
@@ -92,7 +94,7 @@ public class Presenter {
 		default:
 			break;
 		}
-		
+
 	}
 
 	private void listingJeux() {
@@ -101,7 +103,7 @@ public class Presenter {
 		} catch (Exception e) {
 			vue.afficherMessage(e.getMessage());
 		}
-		
+
 	}
 
 	private void listingAnimes() {
@@ -110,7 +112,7 @@ public class Presenter {
 		} catch (Exception e) {
 			vue.afficherMessage(e.getMessage());
 		}
-		
+
 	}
 
 	private void ajoutAnime() {
@@ -120,18 +122,50 @@ public class Presenter {
 		} catch (Exception e) {
 			this.vue.afficherMessage(e.getMessage());
 		}
-		
+
 	}
+
+
 	private void ajoutJeu() {
-		
+
 		try {
 			this.metier.creerJeu(this.vue.saisirJeu());
 			vue.afficherMessage(C.JEU_AJOUTER);
 		}  catch (Exception e) {
 			this.vue.afficherMessage(e.getMessage());
 		}
+
+	}
+
+	private void choixModifier() {
+		int choix;
+		choix = vue.afficherMenu(C.MENU_MODIFIER, C.TITRE_MENU_MODIFIER);
+		switch (choix) {
+		case 1:
+			modifierAnime();
+			break;
+		case 2:
+			modifierJeu();
+			break;
+		}
+	}
+
+
+	private void modifierAnime() {
+		try {
+			metier.modifierAnime(vue.recupererChoixAnimeModifier(metier.recupererListeAnimes()));
+			vue.afficherMessage(C.MESSAGE_MODIFICATION_EFFECTUE);
+		} catch (Exception e) {
+			vue.afficherMessage(e.getMessage());
+		}
 		
 	}
+
+	private void modifierJeu() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void choixSupprimer() {
 		int choix;
 		choix = vue.afficherMenu(C.MENU_SUPPRIMER, C.TITRE_MENU_SUPPRIMER);
@@ -145,7 +179,7 @@ public class Presenter {
 		default:
 			break;
 		}
-		
+
 	}
 
 	private void supprimerJeu() {
@@ -155,7 +189,7 @@ public class Presenter {
 		} catch (Exception e) {
 			vue.afficherMessage(e.getMessage());
 		}
-		
+
 	}
 
 	private void supprimerAnime() {
@@ -165,10 +199,10 @@ public class Presenter {
 		} catch (Exception e) {
 			vue.afficherMessage(e.getMessage());
 		}
-		
+
 	}
 
-	
+
 
 
 

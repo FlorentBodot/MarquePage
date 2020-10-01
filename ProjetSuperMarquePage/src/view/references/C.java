@@ -7,7 +7,7 @@ public class C {
 	public static final int MAX_NB_EPISODE = 1000;
 	
 	public static final String TITRE_MENU_PRINCIPAL = "MENU PRINCIPAL";
-	public static final String[] MENU_PRINCIPAL = {"Listing Animé/Jeu", "Ajouter Animé/Jeu", "Modifié Animé/Jeu", "Supprimé Animé/Jeu"};
+	public static final String[] MENU_PRINCIPAL = {"Listing Animé/Jeu", "Ajouter Animé/Jeu", "Modifier Animé/Jeu", "Supprimer Animé/Jeu"};
 	public static final String DEMANDER_NOM_ANIME = "Quel est le nom de l'animé :";
 	public static final String DEMANDER_LANGUE_ANIME = "Quelle est la langue de l'animé :";
 	public static final String DEMANDER_NUMEPISODE = "Quel est le numéro de l'épisode :";
@@ -31,7 +31,15 @@ public class C {
 	public static final String DEMANDER_CHOIX_JEU = "Choisissez le jeu a supprimer :";
 	public static final String DEMANDER_CHOIX_ANIME = "Choisissez l'animé a supprimer :";
 
+	public static final String[] MENU_MODIFIER = {"Modifier Animé", "Modifier Jeu"};
+	public static final String TITRE_MENU_MODIFIER = "MENU MODIFIER";
+	public static final String MESSAGE_MODIFICATION_EFFECTUE = "L'animé a bien été modifié.";
 	
 	public static final String FORMATAGE_ANIME = "Nom de l'anime : %s, Dernier épisode vu: %d, Langue: %s \n";
 	public static final String FORMATAGE_JEU = "Nom du jeu : %s, Pourcentage d'avancement: %d , Indice d'avancement: %s \n";
+	public static final String DEMANDER_CHOIX_ANIME_MODIFICATION = "Choisissez un animé à modifier : ";
+	public static final String FACADE_VUE_ERREUR_MODIFICATION = "Erreur lors de la modification de l'anime";
+
+	
+
 }
