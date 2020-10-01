@@ -71,14 +71,14 @@ public class FacadeVueImpl implements FacadeVue{
 	@Override
 	public void afficherListingAnime(List<Anime> Animes) {
 		for (Anime a : Animes) {
-			AffichageConsole.afficherMessageSansSautLigne(a.getNomAnime()+"\t\t"+a.getNumeroEp()+"\t\t"+a.getLangue()+"\n");
+			AffichageConsole.afficherMessageSansSautLigne(String.format(C.FORMATAGE_ANIME, a.getNomAnime(), a.getNumeroEp(), a.getLangue()));
 		}
 	}
 
 	@Override
 	public void afficherListingJeu(List<Jeu> jeux) {
 		for (Jeu j : jeux) {
-			AffichageConsole.afficherMessageSansSautLigne(j.getNomJeu()+"\t\t"+j.getPourcentageAvancement()+"\t\t"+j.getIndiceAvancement()+"\n");
+			AffichageConsole.afficherMessageSansSautLigne(String.format(C.FORMATAGE_JEU, j.getNomJeu(),j.getPourcentageAvancement(), j.getIndiceAvancement()));
 		}
 		
 	}

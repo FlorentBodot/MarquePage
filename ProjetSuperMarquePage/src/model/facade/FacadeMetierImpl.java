@@ -15,6 +15,8 @@ import model.entities.Jeu;
  */
 public final class FacadeMetierImpl extends AbstractFacadeMetierImpl {
 	
+	private final static FacadeMetier SINGLETON = new FacadeMetierImpl();
+	
 	public List<Anime> recupererListeAnimes()throws Exception{
 
 		try {
@@ -91,6 +93,10 @@ public final class FacadeMetierImpl extends AbstractFacadeMetierImpl {
 			throw new Exception(e);
 		}
 		
+	}
+
+	public static FacadeMetier getInstance() {
+		return SINGLETON;
 	}
 
 
