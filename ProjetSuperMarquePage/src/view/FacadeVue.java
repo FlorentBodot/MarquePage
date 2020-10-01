@@ -30,8 +30,8 @@ public interface FacadeVue {
 	public Anime recupererChoixAnimeSupprimer(List<Anime> animes);
 	
 	public void modifierAnime(Anime anime) throws VueException;
-	public void modifierJeu(Jeu jeu);
+	public Jeu modifierJeu(Jeu jeu) throws VueException;
 
 	public Anime recupererChoixAnimeModifier(List<Anime> recupererListeAnimes);
-	
+	public Jeu recupererChoixJeuModifier(List<Jeu> recupererListeJeux);
 }

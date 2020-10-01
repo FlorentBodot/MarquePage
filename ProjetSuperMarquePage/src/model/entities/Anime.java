@@ -12,7 +12,7 @@ import model.entities.references.TypeLangue;
  * prenant en paramètre un nom un numéro et une langue
  */
 
-@Getter
+
 public class Anime {
 	
 	private String nomAnime;
@@ -92,6 +92,15 @@ public class Anime {
 		if (numeroEp != other.numeroEp)
 			return false;
 		return true;
+	}
+	public String getNomAnime() {
+		return nomAnime;
+	}
+	public int getNumeroEp() {
+		return numeroEp;
+	}
+	public TypeLangue getLangue() {
+		return langue;
 	}
 
 	

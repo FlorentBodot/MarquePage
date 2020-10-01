@@ -39,6 +39,7 @@ public class C {
 	public static final String FORMATAGE_JEU = "Nom du jeu : %s, Pourcentage d'avancement: %d , Indice d'avancement: %s \n";
 	public static final String DEMANDER_CHOIX_ANIME_MODIFICATION = "Choisissez un animé à modifier : ";
 	public static final String FACADE_VUE_ERREUR_MODIFICATION = "Erreur lors de la modification de l'anime";
+	public static final String DEMANDER_CHOIX_JEU_MODIFICATION = "Choisissez un jeu à modifier : ";
 
 	
 

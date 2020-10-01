@@ -78,7 +78,7 @@ public final class FacadeMetierImpl extends AbstractFacadeMetierImpl {
 	@Override
 	public void modifierJeu(Jeu j) throws Exception {
 		try {
-			daoJeu.create(j);
+			daoJeu.update(j);
 		} catch (DaoException e) {
 			throw new Exception(e);
 		}

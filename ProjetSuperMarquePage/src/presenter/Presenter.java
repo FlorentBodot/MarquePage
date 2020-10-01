@@ -162,7 +162,11 @@ public class Presenter {
 	}
 
 	private void modifierJeu() {
-		// TODO Auto-generated method stub
+		try {
+			metier.modifierJeu(vue.modifierJeu(vue.recupererChoixJeuModifier(metier.recupererListeJeux())));
+		} catch (Exception e) {
+			vue.afficherMessage(e.getMessage());
+		}
 		
 	}
 

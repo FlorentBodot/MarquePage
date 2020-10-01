@@ -10,6 +10,8 @@ import model.entities.Anime;
 import model.entities.EntitiesFactory;
 import model.entities.Jeu;
 import model.entities.exceptions.AnimeException;
+import model.entities.exceptions.ConstructionException;
+import model.entities.exceptions.JeuException;
 import model.entities.references.TypeLangue;
 import view.exceptions.VueException;
 import view.references.C;
@@ -142,8 +144,31 @@ public class FacadeVueImpl implements FacadeVue{
 
 
 	@Override
-	public void modifierJeu(Jeu jeu) {
-		// TODO Auto-generated method stub
+	public Jeu modifierJeu(Jeu jeu) throws VueException {
+		String nomJeu = LectureConsole.lectureChaineCaracteres(C.DEMANDER_NOM_JEU);
+		AffichageConsole.afficherMessageSansSautLigne(C.DEMANDER_AVANCEMENT);
+		int avancement = LectureConsole.lectureChoixInt(0, C.MAX_JEU_AVANCEMENT);
+		String indice = LectureConsole.lectureChaineCaracteres(C.DEMANDER_INDICE_JEU);
+		
+		try {
+			return EntitiesFactory.fabriquerJeu(nomJeu, avancement, indice);
+//			jeu.setNomJeu(nomJeu);
+//			jeu.setPourcentageAvancement(avancement);
+//			jeu.setIndiceAvancement(indice);
+		} catch( ConstructionException e) {
+			throw new VueException(C.FACADE_VUE_ERREUR_MODIFICATION);
+		}
+		
+		
+	}
+
+	@Override
+	public Jeu recupererChoixJeuModifier(List<Jeu> ListeJeux) {
+		int choix;
+		afficherListingJeu(ListeJeux);
+		afficherMessage(C.DEMANDER_CHOIX_JEU_MODIFICATION);
+		choix = LectureConsole.lectureChoixInt(1, ListeJeux.size());
+		return ListeJeux.get(choix);
 		
 	}
 	
