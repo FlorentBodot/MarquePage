@@ -1,7 +1,6 @@
 package model.entities;
 import java.util.Objects;
 
-import lombok.Getter;
 import model.entities.exceptions.AnimeException;
 import model.entities.references.C;
 import model.entities.references.TypeLangue;

@@ -153,7 +153,7 @@ public class Presenter {
 
 	private void modifierAnime() {
 		try {
-			metier.modifierAnime(vue.recupererChoixAnimeModifier(metier.recupererListeAnimes()));
+			metier.modifierAnime(vue.modifierAnime(vue.recupererChoixAnimeModifier(metier.recupererListeAnimes())));
 			vue.afficherMessage(C.MESSAGE_MODIFICATION_EFFECTUE);
 		} catch (Exception e) {
 			vue.afficherMessage(e.getMessage());

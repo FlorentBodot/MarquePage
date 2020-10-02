@@ -10,7 +10,6 @@ import model.entities.Anime;
 import model.entities.EntitiesFactory;
 import model.entities.Jeu;
 import model.entities.exceptions.AnimeException;
-import model.entities.exceptions.ConstructionException;
 import model.entities.exceptions.JeuException;
 import model.entities.references.TypeLangue;
 import view.exceptions.VueException;
@@ -126,7 +125,7 @@ public class FacadeVueImpl implements FacadeVue{
 	}
 
 	@Override
-	public void modifierAnime(Anime anime) throws VueException {
+	public Anime modifierAnime(Anime anime) throws VueException {
 		String nomAnime = LectureConsole.lectureChaineCaracteres(C.DEMANDER_NOM_ANIME);
 		AffichageConsole.afficherMessageAvecSautLigne(C.DEMANDER_NUMEPISODE);
 		int numEpisode = LectureConsole.lectureEntier();
@@ -136,6 +135,7 @@ public class FacadeVueImpl implements FacadeVue{
 			anime.setNomAnime(nomAnime);
 			anime.setNumeroEp(numEpisode);
 			anime.setLangue(langue);
+			return anime;
 		} catch( AnimeException e) {
 			throw new VueException(C.FACADE_VUE_ERREUR_MODIFICATION);
 		}
@@ -151,11 +151,12 @@ public class FacadeVueImpl implements FacadeVue{
 		String indice = LectureConsole.lectureChaineCaracteres(C.DEMANDER_INDICE_JEU);
 		
 		try {
-			return EntitiesFactory.fabriquerJeu(nomJeu, avancement, indice);
-//			jeu.setNomJeu(nomJeu);
-//			jeu.setPourcentageAvancement(avancement);
-//			jeu.setIndiceAvancement(indice);
-		} catch( ConstructionException e) {
+//			return EntitiesFactory.fabriquerJeu(nomJeu, avancement, indice);
+			jeu.setNomJeu(nomJeu);
+			jeu.setPourcentageAvancement(avancement);
+			jeu.setIndiceAvancement(indice);
+			return jeu;
+		} catch( JeuException e) {
 			throw new VueException(C.FACADE_VUE_ERREUR_MODIFICATION);
 		}
 		
@@ -168,7 +169,7 @@ public class FacadeVueImpl implements FacadeVue{
 		afficherListingJeu(ListeJeux);
 		afficherMessage(C.DEMANDER_CHOIX_JEU_MODIFICATION);
 		choix = LectureConsole.lectureChoixInt(1, ListeJeux.size());
-		return ListeJeux.get(choix);
+		return ListeJeux.get(choix-1);
 		
 	}
 	
