@@ -1,14 +1,15 @@
 package model.entities;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import model.entities.exceptions.AnimeException;
 import model.entities.exceptions.ConstructionException;
 import model.entities.exceptions.JeuException;
 import model.entities.references.TypeLangue;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class EntitiesFactory {
 
-	private EntitiesFactory() {}
-	
 	public static Jeu fabriquerJeu(final String nom, final int pourcentage, final String indice) throws ConstructionException {
 
 		
@@ -35,7 +36,7 @@ public final class EntitiesFactory {
 			a.setLangue(langue);
 			return a;
 		} catch (AnimeException e) {
-			throw new ConstructionException(e.getMessage());
+			throw new ConstructionException(e);
 		}
 		
 		

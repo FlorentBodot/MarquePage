@@ -1,5 +1,5 @@
 package model.entities.references;
-
+@Deprecated
 public class C {
 
 	public static final String NOMANIME_NULL = "Le nom de l'animé ne peut être null";

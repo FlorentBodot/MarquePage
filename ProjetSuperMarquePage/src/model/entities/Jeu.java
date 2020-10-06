@@ -2,10 +2,16 @@ package model.entities;
 
 import java.util.Objects;
 
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import model.entities.exceptions.JeuException;
-import model.entities.references.C;
+import model.entities.references.I18nC;
 
-
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@EqualsAndHashCode
 public class Jeu {
 
 	private String nomJeu;
@@ -21,11 +27,11 @@ public class Jeu {
 	 */
 	public void setNomJeu(String nomJeu) throws JeuException {
 		if (Objects.isNull(nomJeu)) {
-			throw new JeuException(C.JEU_NOM_NULL_EXCEPTION);
+			throw new JeuException(I18nC.get("JEU_NOM_NULL_EXCEPTION"));
 		}
 		nomJeu = nomJeu.trim();
 		if (nomJeu.isEmpty()) {
-			throw new JeuException(C.JEU_NOM_VIDE_EXCEPTION);
+			throw new JeuException(I18nC.get("JEU_NOM_VIDE_EXCEPTION"));
 		}
 		this.nomJeu = nomJeu;
 	}
@@ -37,10 +43,10 @@ public class Jeu {
 	 */
 	public void setPourcentageAvancement(int pourcentageAvancement) throws JeuException {
 		if (pourcentageAvancement < 0) {
-			throw new JeuException(C.JEU_AVANCEMENT_NEGATIF_EXCEPTION);
+			throw new JeuException(I18nC.get("JEU_AVANCEMENT_NEGATIF_EXCEPTION"));
 		}
 		if (pourcentageAvancement > 100) {
-			throw new JeuException(C.JEU_AVANCEMENT_IMPOSSIBLE_EXCEPTION);
+			throw new JeuException(I18nC.get("JEU_AVANCEMENT_IMPOSSIBLE_EXCEPTION"));
 		}
 		this.pourcentageAvancement = pourcentageAvancement;
 	}
@@ -52,56 +58,14 @@ public class Jeu {
 	 */
 	public void setIndiceAvancement(String indiceAvancement) throws JeuException {
 		if (Objects.isNull(indiceAvancement)) {
-			throw new JeuException(C.JEU_INDICE_NULL_EXCEPTION);
+			throw new JeuException(I18nC.get("JEU_INDICE_NULL_EXCEPTION"));
 		}
 		indiceAvancement = indiceAvancement.trim();
 		if (indiceAvancement.isEmpty()) {
-			throw new JeuException(C.JEU_INDICE_VIDE_EXCEPTION);
+			throw new JeuException(I18nC.get("JEU_INDICE_VIDE_EXCEPTION"));
 		}
 		this.indiceAvancement = indiceAvancement;
 	}
 
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((nomJeu == null) ? 0 : nomJeu.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Jeu other = (Jeu) obj;
-		if (nomJeu == null) {
-			if (other.nomJeu != null)
-				return false;
-		} else if (!nomJeu.equals(other.nomJeu))
-			return false;
-		return true;
-	}
-
-	public Object getNomJeu() {
-		
-		return this.nomJeu;
-	}
-	public Object getPourcentageAvancement() {
-		
-		return this.pourcentageAvancement;
-	}
-	public Object getIndiceAvancement() {
-		
-		return this.indiceAvancement;
-	}
-	protected Jeu() {}
-	
-	
 	
 }
