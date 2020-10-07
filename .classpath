@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="ProjetSuperMarquePage/src"/>
+	<classpathentry kind="lib" path="ProjetSuperMarquePage/libs/CLR_Dao_1.2.1.jar"/>
+	<classpathentry kind="lib" path="ProjetSuperMarquePage/libs/CLRUtilConsole.jar"/>
+	<classpathentry kind="lib" path="ProjetSuperMarquePage/libs/lombok.jar"/>
+	<classpathentry kind="output" path="ProjetSuperMarquePage/bin"/>
+</classpath>
