@@ -10,7 +10,7 @@ public class I18nC {
 	private static ResourceBundle rb;
 	
 	static {
-		I18nC.rb = ResourceBundle.getBundle(I18nC.FILE_BASE_NAME);
+		I18nC.rb =  ResourceBundle.getBundle(FILE_BASE_NAME);
 	}
 	
 	public static void changeLocal(Locale pLocale) {

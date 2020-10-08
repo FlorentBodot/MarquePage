@@ -11,14 +11,15 @@ import model.entities.references.TypeLangue;
 
 /**
  * @author anthony.giboz
- * Classe permettant de créer un objet de type Anime
- * prenant en paramètre un nom un numéro et une langue
+ * Classe permettant de crï¿½er un objet de type Anime
+ * prenant en paramï¿½tre un nom un numï¿½ro et une langue
  */
 
 @Getter
 @EqualsAndHashCode
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Anime {
+	
 	
 	private String nomAnime;
 	

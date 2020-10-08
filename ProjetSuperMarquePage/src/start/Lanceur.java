@@ -10,9 +10,9 @@ import view.FacadeVueFactory;
  * 
  * @author anthony.giboz
  * @author florent.bodot
- * Programme écrivant en dur comme un marque page les noms numéros d'episode
- * et la langue que rentre l'utilisateur de l'animé en question.
- * Écrivant aussi en dur comme un marque page les noms pourcentage d'avancement
+ * Programme ï¿½crivant en dur comme un marque page les noms numï¿½ros d'episode
+ * et la langue que rentre l'utilisateur de l'animï¿½ en question.
+ * ï¿½crivant aussi en dur comme un marque page les noms pourcentage d'avancement
  * et un indice de positionnement dans le jeu que rentre l'utilisateur du jeu en question.
  */
 
@@ -25,11 +25,12 @@ public class Lanceur {
 
 
 	
-		metier.initialiserAnimes();
+//		metier.initialiserAnimes();
 		metier.initialiserJeux();
 	Presenter p = new Presenter(metier, vue);
 
 	p.exec();
+	/*mélanger  i18n et beanvalidation a faire */
 
 }
 }
