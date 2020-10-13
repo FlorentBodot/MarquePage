@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Mon Pendu 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- CSS -->
+	<style>
+		body {
+			width: 800px;
+			margin: auto;
+		}
+        table{border-collapse:collapse;border:0px;}
+		figure {margin: 0px;}
+
+		#debut,
+		#partie {
+			margin-left: 70px;
+		}
+		.droite{margin-left:-5px;}
+		img{margin-bottom:-6px;margin-left:-5px}
+		#a0{background-color:lightgrey;width:100%;}
+	</style>
+</head>
+
+<body onLoad="initialiser();" ><!-- class="container">-->
+	<div class="row">
+		<header class="col-lg-12">
+			<h1>Jeu du pendu</h1>
+		</header>
+	</div>
+	<hr />
+	<section class="row">
+		<div id="a0" class="row">
+			<p  id="coup">JEU: ?? </p>
+			<p  id="proposition">SAISIE: ??? </p>
+		</div>
+		
+		<article id="a1" >
+				<form name="fpendu" id="fpendu" method="POST"
+				      onSubmit="return verifier();" action="pages/suivant.html"
+					  method="post">
+					<p>
+						<label for="saisieLettre">lettre choisie: </label>
+						<input type="text" name="lettre" id="lettre" placeholder="une majuscule svp !" required
+							value="Q" pattern="[A-Z]{1}" />
+					</p>
+					<p>
+						<input type="submit" name="btnsubmit" id="btnsubmit" value="tester lettre" />
+					</p>
+				</form>
+		</article>
+		
+		<article class="col-lg-8">
+				<header>
+					<h3 id="nberreur">ERREUR(s):</h3>
+				</header>
+				<div id="debut">
+						<figure><img src="img/12-Le-Pendu-Sipa3.jpg" alt=" carte tarot vide" /></figure>
+				</div>
+		</article>
+		
+		<!-- la partie encours: les images -->
+		<article id="partie">
+			<table>
+				<!- _____________LIGNE___________________ ->
+				<tr>
+					<td>
+						<figure id="fig9"><img src="img/pendu_9.png" alt="partie 09" /></figure>
+					</td>
+					<td>
+						<figure id="fig10"><img src="img/pendu_10.png" alt="partie 10" class="droite" /></figure>
+					</td>
+				</tr>
+				<!- _____________LIGNE___________________ ->
+				<tr>
+					<td>
+						<figure id="fig7"><img src="img/pendu_7.png" alt="partie 07" /></figure>
+					</td>
+					<td>
+						<figure id="fig8"><img src="img/pendu_8.png" alt="partie 08"  class="droite"/></figure>
+					</td>
+				</tr>
+				<!- _____________LIGNE___________________ ->
+				<tr>
+					<td>
+						<figure id="fig5"><img src="img/pendu_5.png" alt="partie 05" /></figure>
+					</td>
+					<td>
+						<figure id="fig6"><img src="img/pendu_6.png" alt="partie 06"  class="droite"/></figure>
+					</td>
+				</tr>
+				<!- _____________LIGNE___________________ ->
+				<tr>
+					<td>
+						<figure id="fig3"><img src="img/pendu_3.png" alt="partie 03" /></figure>
+					</td>
+					<td>
+						<figure id="fig4"><img src="img/pendu_4.png" alt="partie 04"  class="droite"/></figure>
+					</td>
+				</tr>
+				<!- _____________LIGNE___________________ ->
+				<tr>
+					<td>
+						<figure id="fig1"><img src="img/pendu_1.png" alt="partie 01" /></figure>
+					</td>
+					<td>
+						<figure id="fig2"><img src="img/pendu_2.png" alt="partie 02"  class="droite"/></figure>
+					</td>
+				</tr>
+			</table>
+		</article>
+	</section>
+	<div class="row">
+		<footer class="col-12">
+			DGF/GIR/PDI - 4DK60&copy;10.2020 by pndg
+		</footer>
+	</div>
+	<!-- mes cripts -->
+	<script type="text/javascript" src="js/monsuperMegaPendu2.js"></script>
+</body>
+
+</html>
